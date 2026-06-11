@@ -4,6 +4,8 @@
 
 **Game1** é um jogo 3D desenvolvido em Unity onde o jogador explora um cenário aberto coletando esferas para avançar de fase. A cada nível concluído, uma quantidade maior de esferas é gerada aleatoriamente pelo mapa, tornando o desafio progressivo e infinito. O projeto teve foco na implementação de movimentação fluida com câmera em terceira pessoa controlada pelo mouse.
 
+video da gameplay: https://youtu.be/mdpDwvK9u3A
+
 ---
 
 ## 🕹️ Instruções de Jogabilidade
