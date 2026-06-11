@@ -5,19 +5,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public TextMeshProUGUI textoEsferas;
-    public TextMeshProUGUI textoMensagem; 
-    public int esferasParaVencer = 5;
+    public TextMeshProUGUI textoMensagem;
+    public int esferasParaVencer = 10;
     public int nivelAtual = 1;
     private int contador = 0;
 
-    void Awake() 
-    { 
-        instance = this; 
+    void Awake()
+    {
+        instance = this;
     }
 
-    void Start() 
-    { 
-        textoMensagem.text = ""; 
+    void Start()
+    {
+        textoMensagem.text = "";
+        textoEsferas.text = "Esferas: 0 / " + esferasParaVencer;
     }
 
     public void AdicionarEsfera()
@@ -34,20 +35,20 @@ public class GameManager : MonoBehaviour
     void ProximoNivel()
     {
         nivelAtual++;
-        esferasParaVencer += 5; 
+        int aumento = Random.Range(3, 7); // 3 a 6 a mais por fase
+        esferasParaVencer += aumento;
         contador = 0;
-        
+
         textoEsferas.text = "Esferas: 0 / " + esferasParaVencer;
-        textoMensagem.text = "NÍVEL " + nivelAtual + "! MAIS ESFERAS!";
-        
-        // Aqui usamos a versão atualizada e sem avisos do Unity
+        textoMensagem.text = "NÍVEL " + nivelAtual + "! +" + aumento + " ESFERAS!";
+
         FindAnyObjectByType<GeradorEsferas>().GerarEsferas(esferasParaVencer);
-        
+
         Invoke("LimparMensagem", 3f);
     }
 
-    void LimparMensagem() 
-    { 
-        textoMensagem.text = ""; 
+    void LimparMensagem()
+    {
+        textoMensagem.text = "";
     }
 }
